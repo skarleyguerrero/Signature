@@ -1,0 +1,242 @@
+// Alphabetized Ids
+#Revobody{
+    position: relative;
+    min-height: calc(100vh - 80px);
+}
+
+#aboutOurCommunity {
+    padding: 25px 25px 1px 25px;
+}
+
+#actionCards {
+    margin: 0px;
+    text-align: center;
+}
+
+#app {
+   margin:0;
+   padding:0;
+}
+
+#body {
+    min-height: calc(100vh - 80px - 200px);
+}
+
+#button-group-padding {
+    padding-bottom: 20px;
+}
+
+#button-padding-right {
+    padding-right: 15px;
+}
+
+#calendarDiv {
+    margin: 30px;
+    padding: 30px;
+    background: white;
+}
+
+#card1,
+#card2,
+#card3,
+#card4,
+#card5,
+#card6,
+#card7,
+#card8{
+    width: 96px;
+    height: 96px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 15px;
+    margin-right: 15px;
+    //box-shadow: 0px 0px 3px 1px #888888;
+    transition: transform .3s;
+    padding-top: 15px;
+    border: 2px solid rgba(0, 0, 0, 0.125);
+}
+
+
+#card1 a:link,
+#card2 a:link,
+#card3 a:link,
+#card4 a:link,
+#card5 a:link,
+#card6 a:link,
+#card7 a:link,
+#card8 a:link{
+    color: #FFF;
+}
+
+#card1:hover,
+#card2:hover,
+#card3:hover,
+#card4:hover,
+#card5:hover,
+#card6:hover,
+#card7:hover,
+#card8:hover{
+    transform: scale(1.15);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.1);
+}
+
+#center-div {
+    width: 100%;
+    margin: auto;
+}
+
+#display-inline {
+    display: inline-block;
+}
+
+#enclosing {
+    padding: 30px;
+}
+
+#enclosing-statement {
+    margin: 15px;
+}
+
+#eventsCard {
+    height: 400px;
+    width: 90%;
+    background-color: white;
+}
+
+#fix-navbar {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#footer {
+    height: 200px;
+    width: 100%;
+	background-color: #e2e1e0 !important;
+	padding:30px;
+}
+
+#group-bottom {
+    padding-bottom: 10px;
+}
+
+#h1-statement {
+    padding-bottom: 15px;
+}
+
+#h1-user-info {
+    text-decoration: underline;
+}
+
+#headerLogIn {
+    display: inline;
+    margin-right: 15px;
+}
+
+#indent-right {
+    padding-right: 15px;
+}
+
+#login-left {
+    margin-left: 30px;
+    padding-top: 15px;
+}
+
+#loginForm {
+    border: none;
+    padding-top: 30px;
+    //margin-bottom: 30px;
+}
+
+#loginPageCard {
+    padding: 15px;
+}
+
+#main {
+    height: 120vh;
+}
+
+#marginAbove {
+    margin-top: 10px;
+}
+
+#marginBottom {
+    margin-bottom: 15px;
+}
+
+#marginLeft {
+    margin-left: 15px;
+}
+
+#navbar {
+    height: 125px;
+    margin: 30px;
+    background-color: #f4f4f2;
+}
+
+#paddingForm {
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#paddingInput {
+    padding-top: 8px;
+}
+
+#pixel-left {
+    margin-left: 30px;
+}
+
+#pixel-leftSmall {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    font-size: 20px;
+}
+
+#pixel-right {
+    margin-right: 30px;
+}
+
+#questionsAnswers {
+    margin: 30px;
+    padding: 30px;
+    background-color: white;
+}
+
+#register-right {
+    margin-right: 30px;
+}
+
+#revoIframe {
+    height: calc(100vh - 80px - 200px);
+}
+
+#secondCard {
+    margin-top: 20px;
+}
+
+#space-between {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+#statementCardSmall {
+    background-color: #e8e8e8;
+    padding-top: 10px;
+    padding-bottom: 1px;
+    margin-bottom: 10px;
+    border-radius: calc(.25rem - 1px);
+}
+
+#statementPageCard {
+    margin: 30px;
+    padding: 30px;
+}
+
+#top-group {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

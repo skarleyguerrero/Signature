@@ -1,0 +1,49 @@
+// Alphabetized elements
+a {
+    color: #1293d4;
+}
+
+a:hover {
+    color: #1293d4;
+}
+
+body {
+    margin:0;
+    padding:0;
+    height:100vh;
+    font-family: 'Quicksand', sans-serif !important;
+}
+
+div.app > div:first-child {
+    height: 100%;
+}
+
+h4 {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+li.menu-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+html {
+    font-size: 1em;
+}
+
+span.icon>img {
+    height: 32px;
+}
+
+ul#menu li {
+    display: inline;
+}
+
+ul.menu-items {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 8px solid #A9A9A9;
+}

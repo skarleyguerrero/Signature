@@ -1,0 +1,5 @@
+@media (max-width: 576px){
+     #payment-details .col-xs-6{
+   	width: 100%;
+     }
+}
