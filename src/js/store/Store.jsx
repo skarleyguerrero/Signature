@@ -8,6 +8,7 @@ class Store extends Flux.Store {
         this.state = {
             currentBalance:"",
             displayName: "",
+            fullName: "",
             history: "",
             password: "",
             peopleKey: "",
@@ -46,12 +47,12 @@ class Store extends Flux.Store {
     _resetSendView() {
         this.setStoreState({ resetEmail: "false" }).emit()
     }
-    
+
     _setContactInformation(data) {
         let email = data.email
         let address = data.address[0]
         let contactData = data.contactData
-        
+
         let propertyAddress = {
                 id: address.id,
                 address: address.address,
@@ -70,7 +71,7 @@ class Store extends Flux.Store {
         for (let i = 0; i < contactData.length; i++) {
             const key = contactData[i].contacttype
             if (key == 'altAddress') {
-                mailingAddress = { 
+                mailingAddress = {
                     id: contactData[i].id,
                     address: contactData[i].address,
                     address2: contactData[i].address2,
@@ -78,8 +79,8 @@ class Store extends Flux.Store {
                     state: contactData[i].state,
                     zip: contactData[i].zip
                 }
-            } 
-            
+            }
+
             if (key == 'phone') {
                 if (contactData[i].topsphonetype === 'Alternate') {
                     newPhone = {
@@ -90,7 +91,7 @@ class Store extends Flux.Store {
                     }
                 Object.assign(phone,newPhone)
                 }
-            
+
                 if (contactData[i].topsphonetype === 'Home') {
                     newPhone = {
                         Home: {
@@ -131,7 +132,7 @@ class Store extends Flux.Store {
             })
             .emit()
     }
-    
+
     _setRevoToken(data){
         this.setStoreState({
                 revoToken: data.token
@@ -143,6 +144,12 @@ class Store extends Flux.Store {
                 uid: data.info.id,
                 displayName: data.info.firstname,
                 peopleKey: data.info.peoplekey
+            })
+            .emit()
+    }
+    _setFullName(data) {
+        this.setStoreState({
+                fullName: data.info.firstname+' '+data.info.lastname,
             })
             .emit()
     }
@@ -181,7 +188,7 @@ class Store extends Flux.Store {
     getCurrentBalance() {
         const currentBalance = this.state.currentBalance
         return currentBalance
-    } 
+    }
     getEmail(){
         const email = this.state.propertyInfo.email
         return email
@@ -194,6 +201,10 @@ class Store extends Flux.Store {
         const propertyInfo = this.state.propertyInfo
         return propertyInfo
     }
+    getCustomerName() {
+        const customerInfo = this.state.fullName
+        return customerInfo
+    }
     getRevoAccountNumber() {
         const revoAccountNumber = this.state.revoAccountNumber
         return revoAccountNumber
@@ -205,13 +216,13 @@ class Store extends Flux.Store {
     getTransactions() {
         const transactions = this.state.transactions
         const transactionsDate = this.state.transactionsDate
-        const transactionsInfo = [transactions, transactionsDate] 
+        const transactionsInfo = [transactions, transactionsDate]
         return transactionsInfo
     }
     saveAddressToStore(add) {
         this.setStoreState({ address: add }).emit()
     }
 }
-    
+
 var store = new Store();
 export default store;

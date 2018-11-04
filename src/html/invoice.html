@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Statement of Account</title>
+    <style media="screen">
+      html{
+        width: 8.5in;
+        height: 11in;
+      }
+
+      body{
+        font-family: Arial;
+      }
+
+      .accountData,
+      .invoiceData{
+        width: 90%;
+        border: 1px solid black;
+        padding: 1%;
+      }
+
+      address{font-weight: bold;}
+
+      .accountData{
+        margin: 30px auto;
+        flex-direction: row;
+        display: flex;
+      }
+
+      .col-50{
+        width: 50%;
+        flex-direction: column;
+        padding: 2%;
+      }
+
+      .referenceData,
+      .accountTable{
+        margin: 0 auto;
+        width: 60%;
+      }
+
+      .invoiceData{
+        margin: 0 auto;
+        border: none;
+      }
+
+      .invoiceData tbody tr{
+        line-height: 20px;
+      }
+
+      .invoiceTable{
+        width: 100%;
+        border-collapse: collapse;
+        height: 4.5in;
+      }
+      .invoiceTable thead,
+      .bold{
+        font-weight: bold;
+      }
+
+      .invoiceTable td:not(:last-child) {
+        border-right: 1px solid black;
+      }
+
+      .invoiceTable thead,
+      .invoiceTable tbody,
+      .invoiceTable tfoot{
+        border: 2px solid black
+      }
+
+      tfoot td{ border:none !important;}
+
+      .balance{
+        text-align: right;
+      }
+      .fillBottom{
+        height: 100%;
+      }
+
+    </style>
+  </head>
+  <body>
+    <p style="text-align:center;">
+      <span class="bold">Lake View of the California</span><br/>
+      <span>PO BOX 166445</span><br/>
+      <span>Miami FL 33116-6445</span><br/>
+      <span>305-325-4243</span>
+    </p>
+    <br/>
+    <p style="text-align:center;font-weight:bold;">Statement of Account - 12/30/16</p>
+    <div class="accountData">
+      <div class="col-50">
+        <div class="referenceData">
+          <p>Re: 20840 San Simeon Way # 103</p>
+          <address class="customerAddress">
+            Hernan A Bujanda<br/>
+            3701 N Country Dr #206<br/>
+            Miami FL 33180<br/>
+          </address>
+        </div>
+      </div>
+      <div class="col-50">
+        <table class="accountTable">
+          <tr>
+            <td>Account #:</td>
+            <td>103</td>
+          </tr>
+          <tr>
+            <td>Lot #:</td>
+            <td>103</td>
+          </tr>
+          <tr>
+            <td>Bill Period:</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Payment Due:</td>
+            <td>12/30/16</td>
+          </tr>
+          <tr>
+            <!-- empty row -->
+          </tr>
+          <tr style="font-weight:bold;">
+            <td>Amount Due:</td>
+            <td>$105.39</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="invoiceData">
+      <table class="invoiceTable">
+        <thead>
+          <tr>
+            <td style="width:10%;">Date</td>
+            <td style="width:45%;">Description</td>
+            <td>Charges</td>
+            <td>Credits</td>
+            <td>Balance</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr>
+            <td>10/31/16</td>
+            <td>Balance Forward</td>
+            <td></td>
+            <td></td>
+            <td>45.39</td>
+          </tr>
+          <tr class="fillBottom">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <td colspan="4" class="balance bold">
+            New Balance - Please Pay This Amount
+          </td>
+          <td colspan="1" class="balance">
+            105.39
+          </td>
+        </tfoot>
+      </table>
+      <div>
+        <p>Make Checks Payable to: <span class="bold">Lake View Of The California</span></p>
+        <p>
+          PAST DUE NOTICE. SUBMIT PAYMENT WITHIN<br/>
+          5 DAYS TO AVOID ADDITIONAL FEES, COSTS<br/>
+          PAY ONLINE & SETUP FREE AUTOPAY<br/>
+          www.MANAGEDBYAFFINITY.COM
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

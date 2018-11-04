@@ -1,0 +1,69 @@
+.wrapper{
+  font-family: Arial;
+  font-size: 12px;
+}
+
+.accountData,
+.invoiceData{
+  width: 90%;
+  border: 1px solid black;
+  padding: 1%;
+}
+
+.customerAddress{font-weight: bold;}
+
+.accountData{
+  margin: 0 auto;
+  flex-direction: row;
+  display: flex;
+}
+
+.col-50{
+  width: 50%;
+  flex-direction: column;
+  padding: 2%;
+}
+
+.referenceData,
+.accountTable{
+  margin: 0 auto;
+  width: 60%;
+}
+
+.invoiceData{
+  margin: 0 auto;
+  border: none;
+}
+
+.invoiceData tbody tr{
+  line-height: 20px;
+}
+
+.invoiceTable{
+  width: 100%;
+  border-collapse: collapse;
+  height: 4in;
+}
+.invoiceTable thead,
+.bold{
+  font-weight: bold;
+}
+
+.invoiceTable td:not(:last-child) {
+  border-right: 1px solid black;
+}
+
+.invoiceTable thead,
+.invoiceTable tbody,
+.invoiceTable tfoot{
+  border: 2px solid black
+}
+
+tfoot td{ border:none !important;}
+
+.balance{
+  text-align: right;
+}
+.fillBottom{
+  height: 100%;
+}

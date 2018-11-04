@@ -58,6 +58,8 @@
     "@fortawesome/free-regular-svg-icons": "^5.3.1",
     "@fortawesome/free-solid-svg-icons": "^5.3.1",
     "@fortawesome/react-fontawesome": "^0.1.2",
+    "@progress/kendo-drawing": "^1.5.7",
+    "@progress/kendo-react-pdf": "^2.3.1",
     "bootstrap": "^4.0.0-beta.2",
     "events": "^1.1.1",
     "flux": "^3.1.3",

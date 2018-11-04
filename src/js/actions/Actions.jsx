@@ -51,7 +51,7 @@ class Actions extends Flux.Action {
                 console.error(error);
             });
     }
-    
+
     getRevoToken(token,accountNumber){
         fetch('https://eastern-amp-201517.appspot.com/revo/login?access_token='+token, {
             method: 'POST',
@@ -75,7 +75,7 @@ class Actions extends Flux.Action {
             console.error(error);
         });
     }
-    
+
     getTransactions(topsOwnerID){
         GET('transactions/?filter[where][topsownerid]='+topsOwnerID+'&filter[order]=sequencenumber DESC')
             .then((transactionData)=>{
@@ -86,9 +86,9 @@ class Actions extends Flux.Action {
                 console.error(error);
             });
     }
-    
+
     login(email, password,nextPage, history) {
-        
+
         POST('Users/login', { email, password })
             .then((data)=>{
                 const access_token = data.id;
@@ -102,7 +102,7 @@ class Actions extends Flux.Action {
                     .then((data)=>{
                         user.info = data;
                         Session.actions.login({ user, access_token });
-                        history.push(nextPage) 
+                        history.push(nextPage)
                     })
                     .catch(function(error) {
                         Notify.error(error.message || error);
@@ -114,24 +114,24 @@ class Actions extends Flux.Action {
             //console.error(error);
         });
     }
-    
+
     logout(history) {
         Session.actions.logout();
-        
+
     }
-    
+
     resetCurrentPassword (token,oldPassword,newPassword){
         var params = {
             oldPassword: oldPassword,
             newPassword: newPassword
         };
-        
+
         var formData = new FormData();
-        
+
         for (var k in params) {
             formData.append(k, params[k]);
         }
-        
+
         var request = {
             method: 'POST',
             headers: {
@@ -140,7 +140,7 @@ class Actions extends Flux.Action {
             }, 'redirect' : 'error',
             body: 'oldPassword='+oldPassword+'&newPassword='+newPassword+''
         };
-        
+
        fetch('https://eastern-amp-201517.appspot.com/api/users/change-password?access_token='+token, request)
         .then((response)=>{
             if(response.ok) {
@@ -155,7 +155,7 @@ class Actions extends Flux.Action {
            return
         });
     }
-  
+
     resetPassword(email) {
         fetch('https://eastern-amp-201517.appspot.com/request-password-reset', {
             method: 'POST',
@@ -175,9 +175,9 @@ class Actions extends Flux.Action {
             console.error(error);
             return error.json()
         });
-        
+
     }
-    
+
     saveAddress(user,data){
         const today = new Date().toJSON().slice(0,10).replace(/-/g,'/')
         let token = user.access_token
@@ -189,9 +189,9 @@ class Actions extends Flux.Action {
             fetchMethod = "POST"
         } else {
             url = 'https://eastern-amp-201517.appspot.com/api/Contacts/'+id+'?access_token='+token
-            fetchMethod = "PUT" 
+            fetchMethod = "PUT"
         }
-        
+
         let bodyObj = JSON.stringify({
             "id":id,
             "associationid":user.user.info.associationid,
@@ -225,7 +225,7 @@ class Actions extends Flux.Action {
             console.log("error updating address")
         })
     }
-    
+
     savePhone(user,key,phone){
         const today = new Date().toJSON().slice(0,10).replace(/-/g,'/')
         let idPhone = phone.id
@@ -238,9 +238,9 @@ class Actions extends Flux.Action {
             fetchMethod = "POST"
         } else {
             url = 'https://eastern-amp-201517.appspot.com/api/Contacts/'+idPhone+'?access_token='+token
-            fetchMethod = "PUT" 
+            fetchMethod = "PUT"
         }
-        
+
         let bodyObj = JSON.stringify({
             "id":idPhone,
             "associationid":user.user.info.associationid,
@@ -269,7 +269,7 @@ class Actions extends Flux.Action {
             console.log("error updating: "+key)
         })
     }
-    
+
     submitArchitectural(user, data,propertyInfo) {
         const today = new Date().toJSON().slice(0,10).replace(/-/g,'/')
         fetch('https://prod-00.westus.logic.azure.com:443/workflows/28153c1f9b924de391fcdf093e7f2878/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aVWZr6jrCmtWZmOHWa8HpxIbaHiZETkYt-1iTvdWo_o', {
@@ -282,7 +282,7 @@ class Actions extends Flux.Action {
                 "dateRequested": today,
                 "associationName": "Vintage Estates",
                 "accountNumber":user.accountnumber,
-                "ownerName": user.firstname+" "+user.lastname, 
+                "ownerName": user.firstname+" "+user.lastname,
                 "ownerAddress": propertyInfo.mailingAddress.address,
                 "ownerAddress2": propertyInfo.mailingAddress.address2,
                 "ownerCity": propertyInfo.mailingAddress.city,
@@ -290,7 +290,7 @@ class Actions extends Flux.Action {
                 "ownerZip": propertyInfo.mailingAddress.zip,
                 "ownerEmail": propertyInfo.email,
                 "ownerPhone": propertyInfo.phone.Alternate.value,
-                "startDate": data.startdate, 
+                "startDate": data.startdate,
                 "numberOfDays": data.duration,
                 "modificationRequested": data.modificationrequested,
                 "CompanyName": data.companyname,
@@ -316,7 +316,7 @@ class Actions extends Flux.Action {
     updateStore(update) {
         this.dispatch("Store.updateState", update)
     }
-    
+
     uploadFiles(files){
         files.forEach((file) => {
             var formData = new FormData();
