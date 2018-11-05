@@ -147,12 +147,6 @@ class Store extends Flux.Store {
             })
             .emit()
     }
-    _setFullName(data) {
-        this.setStoreState({
-                fullName: data.info.firstname+' '+data.info.lastname,
-            })
-            .emit()
-    }
     _setTransactions(data){
         const today = new Date().toJSON().slice(0,10).replace(/-/g,'/')
         this.setStoreState({
@@ -200,10 +194,6 @@ class Store extends Flux.Store {
     getPropertyInfo() {
         const propertyInfo = this.state.propertyInfo
         return propertyInfo
-    }
-    getCustomerName() {
-        const customerInfo = this.state.fullName
-        return customerInfo
     }
     getRevoAccountNumber() {
         const revoAccountNumber = this.state.revoAccountNumber

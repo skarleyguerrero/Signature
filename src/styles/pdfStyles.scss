@@ -27,7 +27,7 @@
 .referenceData,
 .accountTable{
   margin: 0 auto;
-  width: 60%;
+  width: 100%;
 }
 
 .invoiceData{
@@ -42,8 +42,17 @@
 .invoiceTable{
   width: 100%;
   border-collapse: collapse;
-  height: 4in;
+  height: 3in;
 }
+
+.tableFooter{
+  width: 100%;
+  margin-bottom: 15px;
+}
+.invoiceTable td {
+    padding-left: 8px;
+}
+
 .invoiceTable thead,
 .bold{
   font-weight: bold;
@@ -55,7 +64,8 @@
 
 .invoiceTable thead,
 .invoiceTable tbody,
-.invoiceTable tfoot{
+.invoiceTable tfoot,
+.tableFooter{
   border: 2px solid black
 }
 

@@ -8,13 +8,18 @@ import React from "react";
 import Store from "../store/Store.jsx";
 import { Link, Redirect } from "react-router-dom";
 import {Session} from '../actions/utility/session';
+
 import { PDFExport } from '@progress/kendo-react-pdf';
-import PDFContent from '../components/PDFContent.jsx';
+import PdfContent from '../components/PDFContent.jsx';
+import PageTemplate from '../components/pageTemplate.jsx';
 
 export default class Statement extends Flux.View {
   constructor(props) {
     super(props);
     this.state = {
+      propertyInfo:{},
+      accountNumber:"",
+      fullName:"",
       currentBalance:"",
       transactionsDate:"",
       transactions:[{
@@ -30,13 +35,29 @@ export default class Statement extends Flux.View {
 
   // Lifecycle methods
   componentWillMount (){
+    const adjustNameCapitalization = (str) => {
+       var splitStr = str.toLowerCase().split(' ');
+       for (var i = 0; i < splitStr.length; i++) {
+           splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+       }
+       return splitStr.join(' ');
+    }
+
     const currBal = Store.getCurrentBalance()
     const tranObj = Store.getTransactions()
-     this.setState ({
-        currentBalance: currBal,
-        transactions: tranObj[0],
-        transactionsDate: tranObj[1]
-      })
+    const session = Session.store.getSession()
+    const customerName = adjustNameCapitalization(session.user.info.topsownerfullname)
+    const accountNum = session.user.info.accountnumber
+    const propertyObject = Store.getPropertyInfo()
+
+    this.setState ({
+      accountNumber: accountNum,
+      propertyInfo: propertyObject,
+      fullName: customerName,
+      currentBalance: currBal,
+      transactions: tranObj[0],
+      transactionsDate: tranObj[1]
+    })
   }
 
   componentDidMount() {
@@ -115,9 +136,16 @@ export default class Statement extends Flux.View {
     })
 
     var exportPDF = () => {
+      if(this.state.currentBalance !== ''){
         this.invoice.save();
+      }
     }
 
+    var dateConvert = () => {
+      const date = this.state.transactionsDate;
+      const currentDate = date.substr(5,2)+'/'+date.substr(8,2)+'/'+date.substr(0,4);
+      return currentDate;
+    }
 
     return (
       <div>
@@ -190,21 +218,26 @@ export default class Statement extends Flux.View {
           </div>
           </span>
         </div>
+        <div style={{ position: "absolute", left: "-1000px", top: 0 }}>
+          <PDFExport
+              paperSize='Letter'
+              pageTemplate={PageTemplate}
+              fileName={"invoice"+this.state.transactionsDate+".pdf"}
+              repeatHeaders={true}
+              margin={{top:"1.5cm", right: "1cm",bottom:"1.5cm",left:"1cm"}}
+              ref={(component)=>this.invoice=component}
+              >
+                <PdfContent
+                  transactions={this.state.transactions}
+                  transactionsDate={dateConvert()}
+                  currentBalance={this.state.currentBalance}
+                  propertyInfo={this.state.propertyInfo}
+                  customerName={this.state.fullName}
+                  account={this.state.accountNumber}
+                  />
+          </PDFExport>
+        </div>
         <Footer />
-
-        <PDFExport
-            paperSize={'Letter'}
-            fileName={"invoice"+this.state.transactionsDate+".pdf"}
-            margin="2cm"
-            allPages='true'
-            title=""
-            subject=""
-            keywords=""
-            ref={(component)=>this.invoice=component}>
-            <div>
-              <PDFContent />
-            </div>
-        </PDFExport>
       </div>
     );
   }

@@ -2,15 +2,9 @@ import React from "react";
 import Store from "../store/Store.jsx";
 import "../../styles/pdfStyles.scss";
 
-const PDFContent = ()=>{
-  // Get Data
-  const currentBalance = Store.getCurrentBalance();
-  const transactions = Store.getTransactions();
-  const propertyInfo = Store.getPropertyInfo();
-  const customerName = Store.getCustomerName();
-
+const PdfContent = (props) => {
   const dateStyle={
-    width: '10%'
+    width: '15%'
   }
 
   const descriptionStyle={
@@ -21,34 +15,21 @@ const PDFContent = ()=>{
     textAlign: 'center'
   }
 
-  const textRight={
-    textAlign: 'right'
-  }
-
-  var renderInvoiceRows = ()=>{
-    this.transactions.map(transaction=>{
-      var credits = ()=>{
-        (transaction.type=='Payment')? '$'+transaction.amount :'';
-      }
-      var charges = ()=>{
-        (transaction.type=='Charge')? '$'+transaction.amount :'';
-      }
+  var renderInvoiceRows = props.transactions.map(transaction=>{
       var date = transaction.date;
       return(
         <tr key={transaction.id}>
           <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
           <td>{transaction.description}</td>
-          <td>{credits}</td>
-          <td>{charges}</td>
+          <td>{(transaction.type==='Payment')? '$'+transaction.amount :''}</td>
+          <td>{(transaction.type==='Charge')? '$'+transaction.amount :''}</td>
           <td>${transaction.balance}</td>
         </tr>
-      )
+      );
     });
-  }
 
   return(
     <div className="wrapper">
-      <p style={textRight}>Page {this.pageNum}</p>
       <p style={textCenter}>
         <span className="bold">Lake View of the California</span><br/>
         <span>PO BOX 166445</span><br/>
@@ -56,17 +37,17 @@ const PDFContent = ()=>{
         <span>305-325-4243</span>
       </p>
       <br/>
-      <p style={textCenter} className="bold">Statement of Account - {transactions.transactionsDate}</p>
+      <p style={textCenter} className="bold">Statement of Account - {props.transactionsDate}</p>
       <div className="accountData">
         <div className="col-50">
           <div className="referenceData">
-            <p>Re: {propertyInfo.mailingAddress.address} {propertyInfo.mailingAddress.address2}</p>
+            <p>Re: {props.propertyInfo.mailingAddress.address} {props.propertyInfo.mailingAddress.address2}</p>
             <address className="customerAddress">
-              {customerName}<br/>
-              {propertyInfo.mailingAddress.address}<br/>
-              {propertyInfo.mailingAddress.address2}<br/>
-              {propertyInfo.mailingAddress.city},{propertyInfo.mailingAddress.state}&nbsp;
-              {propertyInfo.mailingAddress.zip}<br/>
+              {props.customerName}<br/>
+              {props.propertyInfo.mailingAddress.address}<br/>
+              {props.propertyInfo.mailingAddress.address2}<br/>
+              {props.propertyInfo.mailingAddress.city},{props.propertyInfo.mailingAddress.state}&nbsp;
+              {props.propertyInfo.mailingAddress.zip}<br/>
             </address>
           </div>
         </div>
@@ -75,7 +56,7 @@ const PDFContent = ()=>{
             <tbody>
               <tr>
                 <td>Account #:</td>
-                <td>103</td>
+                <td>{props.account}</td>
               </tr>
               <tr>
                 <td>Lot #:</td>
@@ -87,16 +68,13 @@ const PDFContent = ()=>{
               </tr>
               <tr>
                 <td>Payment Due:</td>
-                <td>12/30/16</td>
+                <td></td>
               </tr>
               <tr>
-                {
-                  //empty row
-                }
               </tr>
               <tr className="bold">
                 <td>Amount Due:</td>
-                <td>$105.39</td>
+                <td>{props.currentBalance}</td>
               </tr>
             </tbody>
           </table>
@@ -115,13 +93,6 @@ const PDFContent = ()=>{
           </thead>
           <tbody>
             {renderInvoiceRows}
-            <tr className="fillBottom">
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
           </tbody>
         </table>
         <table className="tableFooter">
@@ -131,7 +102,7 @@ const PDFContent = ()=>{
                 New Balance - Please Pay This Amount
               </td>
               <td colSpan="1" className="balance">
-                {currentBalance}
+                {props.currentBalance}
               </td>
             </tr>
           </tbody>
@@ -150,4 +121,4 @@ const PDFContent = ()=>{
   );
 }
 
-export default PDFContent;
+export default PdfContent;
