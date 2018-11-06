@@ -7,10 +7,10 @@ import ReactDOM from 'react-dom';
 //import 'font-awesome/css/font-awesome.min.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPaintRoller, faUserCircle, faFileAlt, faListAlt, faBirthdayCake, faWallet, faTrashAlt,faUserCheck } from '@fortawesome/free-solid-svg-icons'
+import { faFilePdf, faPaintRoller, faUserCircle, faFileAlt, faListAlt, faBirthdayCake, faWallet, faTrashAlt,faUserCheck } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPaintRoller,faUserCircle,faFileAlt,faListAlt,faBirthdayCake,faWallet,faTrashAlt, faUserCheck)
-//import '../node_modules/font-awesome/css/font-awesome.min.css'; 
+library.add(faFilePdf,faPaintRoller,faUserCircle,faFileAlt,faListAlt,faBirthdayCake,faWallet,faTrashAlt, faUserCheck)
+//import '../node_modules/font-awesome/css/font-awesome.min.css';
 
 //include bootstrap npm library into the bundle
 import 'bootstrap';
@@ -26,4 +26,3 @@ ReactDOM.render(
     <Router />,
     document.querySelector('#app')
 );
-

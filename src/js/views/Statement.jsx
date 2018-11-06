@@ -2,6 +2,7 @@ import Actions from "../actions/Actions.jsx";
 import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 import Flux from "@4geeksacademy/react-flux-dash";
 import FontAwesome from 'react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Footer from '../components/Footer.jsx';
 import Navbar from '../components/Navbar.jsx';
 import React from "react";
@@ -166,7 +167,7 @@ export default class Statement extends Flux.View {
               </div>
               <div id="button-group-padding" className="row d-flex justify-content-between">
                 <Link to="/pay-now">
-                  <button type="button" className="btn btn-primary button-color-green" onClick={this.exportPDF}>Download Statement</button>
+                  <button type="button" className="btn btn-primary" onClick={this.exportPDF}><FontAwesomeIcon icon='file-pdf' style={{marginRight:'5px'}} size="lg"/> Download Statement</button>
                 </Link>
                 <p id="pixel-leftSmall" className="boldify">Current Balance: ${this.state.currentBalance}</p>
               </div>
@@ -190,7 +191,7 @@ export default class Statement extends Flux.View {
                   <div className="card cardStyle div-top-margin">
                     <div className="card-body row d-flex justify-content-between">
                       <p id="pixel-left" className="boldify">Current Balance: ${this.state.currentBalance}</p>
-                      <button id="pixel-right"  className="btn btn-primary button-color-green" onClick={exportPDF}>Download Statement</button>
+                      <button id="pixel-right"  className="btn btn-primary" onClick={exportPDF}><FontAwesomeIcon icon='file-pdf' style={{marginRight:'5px'}} size="lg"/> Download Statement</button>
                     </div>
                   </div>
                 </div>

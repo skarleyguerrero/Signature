@@ -42,13 +42,13 @@ const PdfContent = (props) => {
         <div className="col-50">
           <div className="referenceData">
             <p>Re: {props.propertyInfo.mailingAddress.address} {props.propertyInfo.mailingAddress.address2}</p>
+
             <address className="customerAddress">
               {props.customerName}<br/>
-              {props.propertyInfo.mailingAddress.address}<br/>
-              {props.propertyInfo.mailingAddress.address2}<br/>
-              {props.propertyInfo.mailingAddress.city},{props.propertyInfo.mailingAddress.state}&nbsp;
-              {props.propertyInfo.mailingAddress.zip}<br/>
+              3701 N Country Dr #206<br/>
+              Miami, FL 33180
             </address>
+
           </div>
         </div>
         <div className="col-50">
@@ -60,15 +60,15 @@ const PdfContent = (props) => {
               </tr>
               <tr>
                 <td>Lot #:</td>
-                <td>103</td>
+                <td>#206</td>
               </tr>
               <tr>
                 <td>Bill Period:</td>
-                <td></td>
+                <td>11/1/18-12/1/18</td>
               </tr>
               <tr>
                 <td>Payment Due:</td>
-                <td></td>
+                <td>{props.transactionsDate}</td>
               </tr>
               <tr>
               </tr>
