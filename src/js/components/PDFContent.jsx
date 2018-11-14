@@ -21,9 +21,9 @@ const PdfContent = (props) => {
         <tr key={transaction.id}>
           <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
           <td>{transaction.description}</td>
-          <td>{(transaction.type==='Payment')? '$'+transaction.amount :''}</td>
-          <td>{(transaction.type==='Charge')? '$'+transaction.amount :''}</td>
-          <td>${transaction.balance}</td>
+          <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+          <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+          <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
         </tr>
       );
     });
@@ -74,7 +74,7 @@ const PdfContent = (props) => {
               </tr>
               <tr className="bold">
                 <td>Amount Due:</td>
-                <td>{props.currentBalance}</td>
+                <td>${props.currentBalance}</td>
               </tr>
             </tbody>
           </table>
@@ -102,7 +102,7 @@ const PdfContent = (props) => {
                 New Balance - Please Pay This Amount
               </td>
               <td colSpan="1" className="balance">
-                {props.currentBalance}
+                ${props.currentBalance}
               </td>
             </tr>
           </tbody>
