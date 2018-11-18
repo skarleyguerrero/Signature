@@ -84,7 +84,7 @@
   </head>
   <body>
     <div class='row'>
-      <div class="col">
+      <div class="col-5">
         <div class="row">
           <div class="col">
             <img src="https://via.placeholder.com/150x100" />
@@ -92,7 +92,7 @@
         </div>
         <div class="row">
           <div class="col">
-            <table>
+            <table class="w-100">
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">Bill To:</th>
@@ -100,15 +100,16 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    <div class="referenceData">
-                      <p>Re: 20840 San Simeon Way # 103</p>
-                      <address class="customerAddress">
-                        Hernan A Bujanda<br/>
-                        3701 N Country Dr #206<br/>
-                        Miami FL 33180<br/>
-                      </address>
-                    </div>
+                  <td scope="col">Re:</td>
+                  <td scope="col">20840 San Simeon Way # 103</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <address class="customerAddress">
+                      Hernan A Bujanda<br/>
+                      3701 N Country Dr #206<br/>
+                      Miami FL 33180<br/>
+                    </address>
                   </td>
                 </tr>
               </tbody>
@@ -119,7 +120,7 @@
 
       <div class="col"></div>
 
-      <div class="col">
+      <div class="col-5">
         <table>
           <thead>
             <tr>
@@ -144,7 +145,7 @@
       </div>
     </div>
     <div class="row">
-      <div class="col">
+      <div class="col-5">
         <table class="table">
           <thead class="thead-dark">
             <tr>
@@ -166,29 +167,25 @@
       <div class="col">
 
       </div>
-      <div class="col">
+      <div class="col-5">
         <table class="table">
           <thead class="thead-dark">
             <tr>
-              <th scope="col">Account Summary</th>
+              <th scope="col" colspan="2">Account Summary</th>
             </tr>
           </thead>
           <tbody>
             <tr scope="row">
-              <td>
-
-              </td>
-              <td>
-
-              </td>
+                <td class="w-50">Bill Period:</td>
+                <td>11/1/18 - 12/1/18</td>
             </tr>
             <tr scope="row">
-              <td>
-
-              </td>
-              <td>
-
-              </td>
+              <td>Payment Due:</td>
+              <td>12/30/16</td>
+            </tr>
+            <tr scope="row">
+              <td>Amount Due:</td>
+              <td>$105.39</td>
             </tr>
           </tbody>
         </table>
@@ -196,29 +193,7 @@
     </div>
     <br/>
 
-    <div class="accountData">
 
-      <div class="col-50">
-        <table class="accountTable">
-
-          <tr>
-            <td>Bill Period:</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Payment Due:</td>
-            <td>12/30/16</td>
-          </tr>
-          <tr>
-            <!-- empty row -->
-          </tr>
-          <tr style="font-weight:bold;">
-            <td>Amount Due:</td>
-            <td>$105.39</td>
-          </tr>
-        </table>
-      </div>
-    </div>
     <div class="invoiceData">
       <table class="invoiceTable">
         <thead>
