@@ -6,9 +6,9 @@ export default class PageTemplate extends React.Component {
         <div className="pdfFooter text-center w-100">
           If you have any questions about this invoice, please contact:
           <address>
-            <strong>Affinity Property Management</strong><br/>
-            [Street Address], [City, State Zip]<br/>
-            Phone: [000-000-0000], Fax: [000-000-0000], [Email]
+            <strong>Affinity Management Services</strong><br/>
+            8200 NW 41st ST STE 200, Doral, FL 33166<br/>
+            Phone: 305-325-4243, Fax: 305-325-4053, CustomerCare@ManagedByAffinity.com
           </address>
           <p className='mt-3'><strong><em>Thank You For Your Business!</em></strong></p>
           <div>Page {this.props.pageNum} of {this.props.totalPages}</div>
