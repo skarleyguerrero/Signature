@@ -12,7 +12,7 @@ import {Session} from '../actions/utility/session';
 
 import { PDFExport } from '@progress/kendo-react-pdf';
 import PdfContent from '../components/PDFContent.jsx';
-import PageTemplate from '../components/pageTemplate.jsx';
+import PageTemplate from '../components/PageTemplate.jsx';
 
 export default class Statement extends Flux.View {
   constructor(props) {
