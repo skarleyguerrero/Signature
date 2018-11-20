@@ -1,6 +1,7 @@
 import React from "react";
 import Store from "../store/Store.jsx";
 import "../../styles/pdfStyles.scss";
+import logo from "../../images/amslogo.jpg"
 
 const PdfContent = (props) => {
 
@@ -27,7 +28,7 @@ const PdfContent = (props) => {
                 <div className="col-5">
                   <div className="row mb-1">
                     <div className="col">
-                      <img src="/local/attorneyPortal/src/images/amslogo.jpg" className="logoImg" />
+                      <img src={logo} className="logoImg" />
                     </div>
                   </div>
                   <div className="row">
