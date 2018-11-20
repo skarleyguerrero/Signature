@@ -193,7 +193,7 @@ const PdfContent = (props) => {
           </tr>
           <tr className="pdfFooter align-middle">
             <td colSpan="5">
-              <div className="text-center align-middle h-100 pb-5">
+              <div className="text-center align-middle h-100 pt-5">
                 If you have any questions about this invoice, please contact:
                 <address>
                   <strong>Affinity Management Services</strong><br/>
