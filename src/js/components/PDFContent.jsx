@@ -42,7 +42,7 @@ const PdfContent = (props) => {
 
   return(
     <div>
-      <table className="w-100 wrapper">
+      <table className="w-100 h-100 wrapper">
         <thead className="pdfHeader">
           <tr>
             <th>
@@ -191,21 +191,19 @@ const PdfContent = (props) => {
               <strong>${props.currentBalance}</strong>
             </td>
           </tr>
-          <tr className="pdfFooter align-middle">
-            <td colSpan="5">
-              <div className="text-center align-middle h-100 pb-5">
-                If you have any questions about this invoice, please contact:
-                <address>
-                  <strong>Affinity Management Services</strong><br/>
-                  8200 NW 41st ST STE 200, Doral, FL 33166<br/>
-                  Phone: 305-325-4243, Fax: 305-325-4053, CustomerCare@ManagedByAffinity.com
-                </address>
-                <p className='mt-3'><strong><em>Thank You For Your Business!</em></strong></p>
-              </div>
-            </td>
-          </tr>
         </tfoot>
       </table>
+      <div className="row pdfFooter h-100 mt-5">
+        <div className="col-12 align-items-end text-center h-100">
+          If you have any questions about this invoice, please contact:
+          <address>
+            <strong>Affinity Management Services</strong><br/>
+            8200 NW 41st ST STE 200, Doral, FL 33166<br/>
+            Phone: 305-325-4243, Fax: 305-325-4053, CustomerCare@ManagedByAffinity.com
+          </address>
+          <p className='mt-3'><strong><em>Thank You For Your Business!</em></strong></p>
+        </div>
+      </div>
     </div>
   );
 }
