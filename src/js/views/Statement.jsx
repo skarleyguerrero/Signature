@@ -219,13 +219,14 @@ export default class Statement extends Flux.View {
           </div>
           </span>
         </div>
-        <div style={{ position: "absolute", left: "-1000px", top: 0 }}>
+        <div style={{ position: "absolute", left: "-1000%", top: 0 }}>
           <PDFExport
               paperSize='Letter'
               pageTemplate={PageTemplate}
-              fileName={"invoice"+this.state.transactionsDate+".pdf"}
+              fileName={"invoice-"+this.state.transactionsDate+".pdf"}
               repeatHeaders={true}
-              margin={{top:"1.5cm", right: "1cm",bottom:"1.5cm",left:"1cm"}}
+              forcePageBreak=".page-break"
+              margin='1cm'
               ref={(component)=>this.invoice=component}
               >
                 <PdfContent

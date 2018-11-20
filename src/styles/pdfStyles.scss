@@ -1,84 +1,32 @@
 .wrapper{
-  font-family: Arial;
-  font-size: 12px;
-}
-
-.accountData,
-.invoiceData{
-  width: 90%;
-  border: 1px solid black;
-  padding: 1%;
-}
-
-.customerAddress{font-weight: bold;}
-
-.accountData{
-  margin: 0 auto;
-  flex-direction: row;
-  display: flex;
-}
-
-.col-50{
-  width: 50%;
-  flex-direction: column;
-  padding: 2%;
-}
-
-.referenceData,
-.accountTable{
-  margin: 0 auto;
   width: 100%;
-}
-
-.invoiceData{
-  margin: 0 auto;
-  border: none;
-}
-
-.invoiceData tbody tr{
-  line-height: 20px;
+  font-family: Arial;
+  font-size: 10px;
 }
 
 .invoiceTable{
-  width: 100%;
-  border-collapse: collapse;
-  height: 3in;
+  position: relative;
+}
+.logoImg{
+  width:150px;
 }
 
-.tableFooter{
-  width: 100%;
-  margin-bottom: 15px;
+.thead-blue,
+.tcell-blue{
+  background-color: rgb(209,219,241);
 }
 
-.invoiceTable td {
-  padding-left: 4px;
-}
-
-.invoiceTable tbody td {
-  padding-right: 4px;
-}
-
-.invoiceTable thead,
-.bold{
-  font-weight: bold;
-}
-
-.invoiceTable td:not(:last-child) {
-  border-right: 1px solid black;
-}
-
-.invoiceTable thead,
-.invoiceTable tbody,
-.invoiceTable tfoot,
-.tableFooter{
-  border: 2px solid black
-}
-
-tfoot td{ border:none !important;}
-
-.balance{
-  text-align: right;
-}
 .fillBottom{
   height: 100%;
+}
+
+.pdfHeader{
+  display: table-header-group;
+}
+
+.pdfFooter{
+  font-family: Arial;
+  font-size: 10px;
+  bottom:1rem;
+  left: 50%;
 }
