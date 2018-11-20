@@ -24,9 +24,22 @@
   display: table-header-group;
 }
 
-.pdfFooter{
+tr.pdfFooter{
+  height: 100% !important;
+  border-bottom: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  td{
+    height: 100% !important;
+    border: none !important;
+  }
+}
+
+
+.pFoot{
+  position: absolute !important;
   font-family: Arial;
   font-size: 10px;
-  bottom:1rem;
-  left: 50%;
+  bottom: .5cm;
+  left: 0;
 }

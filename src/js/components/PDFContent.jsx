@@ -6,27 +6,28 @@ const PdfContent = (props) => {
 
   var renderInvoiceRows = props.transactions.map((transaction,index)=>{
       var date = transaction.date;
-      if(index!==0 && index===8){
-        return(
-          <tr key={transaction.id} className="page-break">
-            <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
-            <td>{transaction.description}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
-          </tr>
-        );
-      }else if (index!==0 && index%32===0) {
-        return(
-          <tr key={transaction.id} className="page-break">
-            <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
-            <td>{transaction.description}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
-          </tr>
-        );
-      }else{
+      // if(index!==0 && index===8){
+      //   return(
+      //     <tr key={transaction.id} className="page-break">
+      //       <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
+      //       <td>{transaction.description}</td>
+      //       <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+      //       <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+      //       <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
+      //     </tr>
+      //   );
+      // }else if (index!==0 && index%32===0) {
+      //   return(
+      //     <tr key={transaction.id} className="page-break">
+      //       <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
+      //       <td>{transaction.description}</td>
+      //       <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+      //       <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+      //       <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
+      //     </tr>
+      //   );
+      // }else
+      {
         return(
           <tr key={transaction.id}>
             <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
@@ -188,6 +189,19 @@ const PdfContent = (props) => {
             </td>
             <td colSpan="1" className="tcell-blue">
               <strong>${props.currentBalance}</strong>
+            </td>
+          </tr>
+          <tr className="pdfFooter align-middle">
+            <td colSpan="5">
+              <div className="text-center align-middle h-100 pb-5">
+                If you have any questions about this invoice, please contact:
+                <address>
+                  <strong>Affinity Management Services</strong><br/>
+                  8200 NW 41st ST STE 200, Doral, FL 33166<br/>
+                  Phone: 305-325-4243, Fax: 305-325-4053, CustomerCare@ManagedByAffinity.com
+                </address>
+                <p className='mt-3'><strong><em>Thank You For Your Business!</em></strong></p>
+              </div>
             </td>
           </tr>
         </tfoot>
