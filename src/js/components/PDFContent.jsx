@@ -164,7 +164,7 @@ const PdfContent = (props) => {
             <td colSpan="4" className="table-active text-right">
               <strong>New Balance - Please Pay This Amount</strong>
             </td>
-            <td colSpan="1" className="tcell-blue">
+            <td colSpan="1" className="tcell-blue text-right">
               <strong>${props.currentBalance}</strong>
             </td>
           </tr>
