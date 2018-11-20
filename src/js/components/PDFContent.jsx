@@ -6,38 +6,15 @@ const PdfContent = (props) => {
 
   var renderInvoiceRows = props.transactions.map((transaction,index)=>{
       var date = transaction.date;
-      // if(index!==0 && index===8){
-      //   return(
-      //     <tr key={transaction.id} className="page-break">
-      //       <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
-      //       <td>{transaction.description}</td>
-      //       <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-      //       <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-      //       <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
-      //     </tr>
-      //   );
-      // }else if (index!==0 && index%32===0) {
-      //   return(
-      //     <tr key={transaction.id} className="page-break">
-      //       <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
-      //       <td>{transaction.description}</td>
-      //       <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-      //       <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-      //       <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
-      //     </tr>
-      //   );
-      // }else
-      {
-        return(
-          <tr key={transaction.id}>
-            <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
-            <td>{transaction.description}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
-            <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
-          </tr>
-        );
-      }
+      return(
+        <tr key={transaction.id}>
+          <td>{date.substr(5,2)}/{date.substr(8,2)}/{date.substr(0,4)}</td>
+          <td>{transaction.description}</td>
+          <td style={{textAlign:'right'}}>{(transaction.type==='Payment')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+          <td style={{textAlign:'right'}}>{(transaction.type==='Charge')? <span><span style={{float:'left'}}>$</span> {transaction.amount}</span> :''}</td>
+          <td style={{textAlign:'right'}}><span style={{float:'left'}}>$</span> {transaction.balance}</td>
+        </tr>
+      );
     });
 
   return(
