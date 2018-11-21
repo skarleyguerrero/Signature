@@ -17,6 +17,7 @@ import 'bootstrap';
 
 //include your index.scss file into the bundle
 import '../styles/index.scss';
+import '../images/amslogo.jpg';
 
 //import your own components
 import Router from './Router.jsx';
