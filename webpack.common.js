@@ -39,20 +39,15 @@ module.exports = {
           }]
         }, //css only files
         {
-           test: /\.(jpe?g|png|gif|svg)$/i,
-           include : path.join(__dirname, 'images'),
-           loader  : 'url-loader?limit=30000&name=images/[name].[ext]'
-        }, // inline base64 URLs for <=30k images, direct URLs for the rest
-        // {
-        //   test: /\.(gif|png|jpe?g|svg)$/i,
-        //   use: [{
-        //     loader: 'file-loader?name=[name].[ext]',
-        //     options: {
-        //       name: 'images/[name].[ext]',
-        //       emitFile: true
-        //     }
-        //   }],
-        // }, //for images
+          test: /\.(gif|png|jpe?g|svg)$/i,
+          use: [{
+            loader: 'file-loader?name=[name].[ext]',
+            options: {
+              name: 'images/[name].[ext]',
+              emitFile: true
+            }
+          }],
+        }, //for images
         {
           test: /\.woff($|\?)|\.woff2($|\?)|\.ttf($|\?)|\.eot($|\?)|\.svg($|\?)/,
           use: ['file-loader','url-loader?limit=100000']
