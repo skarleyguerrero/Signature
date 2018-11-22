@@ -29,7 +29,35 @@ export default class Statement extends Flux.View {
         type:"",
         amount:"",
         balance:""
-      }]
+      }],
+      lotNumber: "#206",
+      billPeriodStart: "11/1/2018",
+      billPeriodEnd: "11/30/2018",
+      customer: {
+        name: "Margarita",
+        address: "3701 N Country Dr #206",
+        city: "Miami",
+        state: "FL",
+        zip: "33333"
+      },
+      remittance:{
+        name: "Lakeview of the California",
+        address: "PO Box 166445",
+        city: "Miami",
+        state: "FL",
+        zip: "33116-6445",
+        phone: "305-325-4243"
+      },
+      footer:{
+        name: "Affinity Management Services",
+        address: "8200 NW 41st ST. STE 200",
+        city: "Doral",
+        state: "FL",
+        zip: "33166",
+        email: "CustomerCare@ManagedByAffinity.com",
+        phone: "305-325-4243",
+        fax: "305-325-4053"
+      }
     }
     this.invoice = React.createRef();
   }
@@ -233,9 +261,13 @@ export default class Statement extends Flux.View {
                   transactions={this.state.transactions}
                   transactionsDate={dateConvert()}
                   currentBalance={this.state.currentBalance}
-                  propertyInfo={this.state.propertyInfo}
-                  customerName={this.state.fullName}
-                  account={this.state.accountNumber}
+                  accountNumber={this.state.accountNumber}
+                  lotNumber={this.state.lotNumber}
+                  billPeriodStart={this.state.billPeriodStart}
+                  billPeriodEnd={this.state.billPeriodEnd}
+                  customer={this.state.customer}
+                  remittance={this.state.remittance}
+                  footer={this.state.footer}
                   />
           </PDFExport>
         </div>

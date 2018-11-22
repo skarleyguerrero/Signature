@@ -1,6 +1,7 @@
 import React from "react";
 import Store from "../store/Store.jsx";
 import "../../styles/pdfStyles.scss";
+import AmsLogo from './images/amslogo.jpg';
 
 const PdfContent = (props) => {
 
@@ -27,7 +28,7 @@ const PdfContent = (props) => {
                 <div className="col-5">
                   <div className="row mb-1">
                     <div className="col">
-                      <img src='/public/amslogo.jpg' className="logoImg" />
+                      <img src={AmsLogo} className="logoImg" />
                     </div>
                   </div>
                   <div className="row">
@@ -41,17 +42,15 @@ const PdfContent = (props) => {
                         <tbody className="my-0">
                           <tr>
                             <td scope="col">Re:</td>
-                            <td scope="col">3701 N Country Dr #206</td>
+                            <td scope="col">{props.customer.address}</td>
                           </tr>
                           <tr>
                             <td colSpan="2">
-                              <address className="customerAddress">
-                                <strong>
-                                  {props.customerName}<br/>
-                                  3701 N Country Dr #206<br/>
-                                  Miami, FL 33180<br/>
-                                </strong>
-                              </address>
+                              <p>
+                                <strong>{props.customer.name}</strong><br/>
+                                <strong>{props.customer.address}</strong><br/>
+                                <strong>{props.customer.city}, {props.customer.state} {props.customer.zip}</strong><br/>
+                              </p>
                             </td>
                           </tr>
                         </tbody>
@@ -76,18 +75,18 @@ const PdfContent = (props) => {
                       </tr>
                       <tr scope="row">
                         <td>Account #:</td>
-                        <td>{props.account}</td>
+                        <td>{props.accountNumber}</td>
                       </tr>
                       <tr scope="row">
                         <td>Lot #:</td>
-                        <td>103</td>
+                        <td>{props.lotNumber}</td>
                       </tr>
                       <tr scope="row"><td>&nbsp;</td></tr>
                       <tr scope="row">
                         <td><strong>Make Checks Payable to:</strong></td>
                       </tr>
                       <tr scope="row">
-                        <td>Lake View Of The California</td>
+                        <td>{props.remittance.name}</td>
                       </tr>
                     </tbody>
                   </table>
@@ -105,10 +104,10 @@ const PdfContent = (props) => {
                       <tr>
                         <td>
                           <address>
-                            <strong>Lake View of the California</strong><br/>
-                            PO BOX 166445<br/>
-                            Miami FL 33116-6445<br/>
-                            305-325-4243
+                            <strong>{props.remittance.name}</strong><br/>
+                            {props.remittance.address}<br/>
+                            {props.remittance.city}, {props.remittance.state} {props.remittance.zip}<br/>
+                            {props.remittance.phone}
                           </address>
                         </td>
                       </tr>
@@ -128,7 +127,7 @@ const PdfContent = (props) => {
                     <tbody>
                       <tr scope="row">
                           <td className="w-50">Bill Period:</td>
-                          <td>11/1/18 - 12/1/18</td>
+                          <td>{props.billPeriodStart} - {props.billPeriodEnd}</td>
                       </tr>
                       <tr scope="row">
                         <td>Payment Due:</td>
@@ -174,9 +173,9 @@ const PdfContent = (props) => {
         <div className="col-12 align-items-end text-center h-100">
           If you have any questions about this invoice, please contact:
           <address>
-            <strong>Affinity Management Services</strong><br/>
-            8200 NW 41st ST STE 200, Doral, FL 33166<br/>
-            Phone: 305-325-4243, Fax: 305-325-4053, CustomerCare@ManagedByAffinity.com
+            <strong>{props.footer.name}</strong><br/>
+            {props.footer.address}, {props.footer.city}, {props.footer.state} {props.footer.zip}<br/>
+            Phone: {props.footer.phone}, Fax: {props.footer.fax}, {props.footer.email}
           </address>
           <p className='mt-3'><strong><em>Thank You For Your Business!</em></strong></p>
         </div>
