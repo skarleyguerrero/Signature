@@ -8,6 +8,7 @@
     "server": "webpack-dev-server --mode development --open --host $IP --port 8081  --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js --mode production",
     "build:dev": "webpack --config webpack.dev.js --mode development",
+    "build:docs": "webpack --config webpack.dev.docs.js --mode development",
     "dev": "webpack-dev-server --mode development --open --host $IP --port 8081  --config webpack.dev.js",
     "deploy": "node deploy"
   },
