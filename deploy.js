@@ -2,10 +2,10 @@ var FtpDeploy = require('ftp-deploy');
 var ftpDeploy = new FtpDeploy();
  
 var config = {
-//    user: "vintageestatesdoral@amsweb.io",
-  //  user: "realtybyaffinity@amsweb.io",
- //   password: "main123#",
-    password: "HlmgiwA=g_KS",           
+  //  user: "vintageestatesdoral@amsweb.io",
+    user: "realtybyaffinity@amsweb.io",
+    password: "main123#",
+ //   password: "HlmgiwA=g_KS",           
     host: "160.153.63.38",
     port: 21,
     localRoot: __dirname + '/public',

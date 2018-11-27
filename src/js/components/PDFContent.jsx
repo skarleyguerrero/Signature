@@ -28,7 +28,7 @@ const PdfContent = (props) => {
                 <div className="col-5">
                   <div className="row mb-1">
                     <div className="col">
-                      <img src={'./public'+AmsLogo} className="logoImg" />
+                      <img src={AmsLogo} className="logoImg" />
                     </div>
                   </div>
                   <div className="row">
