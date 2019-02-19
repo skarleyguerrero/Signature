@@ -33,18 +33,16 @@ export default class Home extends Flux.View {
                         <p></p>
                         <p></p>
                         <h1 id="aboutOurCommunity">
-                            This is the attorney service portal.
+                            This is the signature test page.
                         </h1>
                     </span>
-                    <span className="smallParagraph">
-                        <input type="checkbox" className="read-more-state" id="post-1" />
-                            <h1 id="aboutOurCommunity" className="read-more-wrap">
-                               This is the attorney service portal.
-                            </h1>
-                        <label htmlFor="post-1" className="read-more-trigger"></label>
-                    </span>
-                    <p></p>
-                    <p></p>
+                    <p>
+                        Please sign the document below
+                    </p>
+                    <p>
+                    ____________________________
+                    
+                    </p>
                 </div>
             </div>   
             <Footer/>

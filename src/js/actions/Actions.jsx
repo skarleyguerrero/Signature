@@ -7,7 +7,7 @@ import Store from "../store/Store.jsx"
 class Actions extends Flux.Action {
 
     getContactData(user){
-        GET('users/'+user.user.id+"?access_token="+user.access_token)
+        GET()
             .then((data)=>{
                 let email = data.email
                 GET('Units/?filter[where][accountnumber]='+user.user.info.accountnumber)
@@ -53,7 +53,7 @@ class Actions extends Flux.Action {
     }
 
     getRevoToken(token,accountNumber){
-        fetch('https://eastern-amp-201517.appspot.com/revo/login?access_token='+token, {
+        fetch('='+token, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -77,7 +77,7 @@ class Actions extends Flux.Action {
     }
 
     getTransactions(topsOwnerID){
-        GET('transactions/?filter[where][topsownerid]='+topsOwnerID+'&filter[order]=sequencenumber DESC')
+        GET('='+topsOwnerID+'&filter[order]=sequencenumber DESC')
             .then((transactionData)=>{
                 this.dispatch("Store.setTransactions", transactionData)
             })
@@ -141,7 +141,7 @@ class Actions extends Flux.Action {
             body: 'oldPassword='+oldPassword+'&newPassword='+newPassword+''
         };
 
-       fetch('https://eastern-amp-201517.appspot.com/api/users/change-password?access_token='+token, request)
+       fetch('='+token, request)
         .then((response)=>{
             if(response.ok) {
                 alert("Password Changed Successfully")
@@ -157,7 +157,7 @@ class Actions extends Flux.Action {
     }
 
     resetPassword(email) {
-        fetch('https://eastern-amp-201517.appspot.com/request-password-reset', {
+        fetch('ht', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -185,10 +185,10 @@ class Actions extends Flux.Action {
         let url = ''
         let fetchMethod = ''
         if (id == "") {
-            url = 'https://eastern-amp-201517.appspot.com/api/Contacts?access_token='+token
+            url = 'hs_token='+token
             fetchMethod = "POST"
         } else {
-            url = 'https://eastern-amp-201517.appspot.com/api/Contacts/'+id+'?access_token='+token
+            url = 'http/'+id+'?access_token='+token
             fetchMethod = "PUT"
         }
 
@@ -234,10 +234,10 @@ class Actions extends Flux.Action {
         let fetchMethod = ''
         phone = phone.value
         if (idPhone == "") {
-            url = 'https://eastern-amp-201517.appspot.com/api/Contacts?access_token='+token
+            url = 'htcts?access_token='+token
             fetchMethod = "POST"
         } else {
-            url = 'https://eastern-amp-201517.appspot.com/api/Contacts/'+idPhone+'?access_token='+token
+            url = 'httontacts/'+idPhone+'?access_token='+token
             fetchMethod = "PUT"
         }
 
@@ -272,7 +272,7 @@ class Actions extends Flux.Action {
 
     submitArchitectural(user, data,propertyInfo) {
         const today = new Date().toJSON().slice(0,10).replace(/-/g,'/')
-        fetch('https://prod-00.westus.logic.azure.com:443/workflows/28153c1f9b924de391fcdf093e7f2878/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=aVWZr6jrCmtWZmOHWa8HpxIbaHiZETkYt-1iTvdWo_o', {
+        fetch('iggers%2Fmanual%2Frun&sv=1.0&sig=aVWZr6jrCmtWZmOHWa8HpxIbaHiZETkYt-1iTvdWo_o', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
